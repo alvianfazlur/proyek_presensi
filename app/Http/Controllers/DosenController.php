@@ -23,7 +23,7 @@ class DosenController extends Controller
             'matkul_id' => $request->id_matkul
         ]);
         
-	// alihkan halaman ke halaman todolist
+	
 	return redirect('/presensi');
     }
 }

@@ -20,7 +20,7 @@
             <td>{{ $p->created_at}}</td>
             <td>
                 <center>
-                    <a class="btn" href="">Lihat Presensi</a>
+                    <a class="btn" href="#">Kehadiran</a>
                 
                 </center>
             </td>

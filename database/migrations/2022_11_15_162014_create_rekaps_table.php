@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignId('matkul_id');
             $table->foreignId('presensi_id');
             $table->foreignId('mahasiswa_nrp');
-            $table->date('hari');
+            $table->boolean('is_hadir');
+            $table->boolean('is_alpha');
             $table->timestamps();
         });
     }

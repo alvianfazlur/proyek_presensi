@@ -12,10 +12,8 @@ class Rekap extends Model
 {
     use HasFactory;
     public $with = ['matkul','mahasiswa','presensi'];
+    protected $guarded = ['id'];
 
-    public function matkul(){
-        return $this->belongsTo(Matkul::class,"matkul_id");
-    }
     public function mahasiswa(){
         return $this->belongsTo(Mahasiswa::class,"mahasiswa_nrp");
     }
