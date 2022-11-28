@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('presensis', function (Blueprint $table) {
             $table->id();
             $table->foreignId('matkul_id');
-            $table->date('hari');
             $table->timestamps();
         });
     }
