@@ -21,7 +21,14 @@
             <td>
                 <center>
                 @if(now()->toDateTimeString() < $p->created_at->addHour())
-                    <a class="btn btn-info" href="#">Presensi</a>
+                <form action="/mahasiswa/Presensi" method="post">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label for="ID Matkul"> </label>
+                        <input type="hidden" class="form-control" name="id_presensi" value="{{ $p->id }}" readonly>
+                    </div>
+                    <input class="btn btn-success" type="submit" value="Presensi">
+                </form>
                 @else
                     
                 @endif

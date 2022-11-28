@@ -12,4 +12,13 @@ class MahasiswaController extends Controller
         $presensi = Presensi::get();
         return view('mahasiswa.homeMhs',['presensi' => $presensi]);
     }
+    public function absen(Request $request){
+        // insert data ke table todolist
+        Rekap::create([
+            'presensi_id' => $request->id_presensi,
+            'is_hadir' => 1
+        ]);       
+	
+	return redirect('/presensi');
+    }
 }

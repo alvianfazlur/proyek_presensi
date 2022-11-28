@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('rekaps', function (Blueprint $table) {
             $table->id();
             $table->foreignId('presensi_id');
-            $table->string('mahasiswa_nrp');
+            $table->string('mahasiswa_nrp')->default(0);
             $table->boolean('is_hadir')->default(0);
             $table->boolean('is_alpha')->default(0);
             $table->timestamps();
