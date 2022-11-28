@@ -41,6 +41,7 @@ Route::post('/index/updateMhs', [IndexController::class,'updateMhs']);
 //Fitur Mahasiswa
 Route::get('/mahasiswa', [MahasiswaController::class,'home']);
 Route::post('/mahasiswa/Presensi', [MahasiswaController::class,'absen']);
+Route::get('/mahasiswa/dashboardsukses', [MahasiswaController::class,'dashboard']);
 
 //Fitur Dosen
 Route::get('/presensi', [DosenController::class,'home']);
