@@ -20,8 +20,7 @@ class DosenController extends Controller
     public function store(Request $request){
         // insert data ke table todolist
         Presensi::create([
-            'matkul_id' => $request->id_matkul,
-            'hari' => $request->hari
+            'matkul_id' => $request->id_matkul
         ]);
         
 	// alihkan halaman ke halaman todolist

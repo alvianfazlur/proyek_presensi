@@ -20,10 +20,6 @@
             <label for="Nama">Matkul : </label>
             <input type="text" class="form-control" name="nama"value="{{ $m->nama_matkul}}" disabled>
         </div>
-        <div class="form-group">
-            <label for="Nama">Tanggal : </label>
-            <input type="date" class="form-control" name="hari"value="" required>
-        </div>
 		<input class="btn btn-success" type="submit" value="Buka Absen">
 	</form>
 	@endforeach
