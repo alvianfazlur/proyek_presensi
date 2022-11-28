@@ -57,7 +57,6 @@
     </ul>
   </div>
   <section class="home-section">
-    <a class="btn btn-success" href="/index/tambahDosen">Tambah Data</a>
     <table class="table table-hover table-striped table-bordered">
         <tr>
             <th  class="table-info">Nama</th>
