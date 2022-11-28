@@ -20,8 +20,11 @@
             <td>{{ $p->created_at}}</td>
             <td>
                 <center>
-                    <a class="btn" href="#">Kehadiran</a>
-                
+                @if(now()->toDateTimeString() < $p->created_at->addHour())
+                    <a class="btn btn-info" href="#">Presensi</a>
+                @else
+                    
+                @endif
                 </center>
             </td>
         </tr>

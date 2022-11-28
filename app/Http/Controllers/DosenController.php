@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use \App\Models\Presensi;
 use \App\Models\Matkul;
+use \App\Models\Rekap;
 
 class DosenController extends Controller
 {
@@ -21,8 +22,7 @@ class DosenController extends Controller
         // insert data ke table todolist
         Presensi::create([
             'matkul_id' => $request->id_matkul
-        ]);
-        
+        ]);       
 	
 	return redirect('/presensi');
     }

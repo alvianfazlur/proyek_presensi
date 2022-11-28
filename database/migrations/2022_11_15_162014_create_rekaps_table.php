@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('rekaps', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('matkul_id');
             $table->foreignId('presensi_id');
-            $table->foreignId('mahasiswa_nrp');
-            $table->boolean('is_hadir');
-            $table->boolean('is_alpha');
+            $table->string('mahasiswa_nrp');
+            $table->boolean('is_hadir')->default(0);
+            $table->boolean('is_alpha')->default(0);
             $table->timestamps();
         });
     }
