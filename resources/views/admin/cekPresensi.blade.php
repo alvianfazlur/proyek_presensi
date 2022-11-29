@@ -71,20 +71,22 @@
       
       <thead class="thead-dark">
         <tr>
-            <th  class="table-info">Nama</th>
-            <th  class="table-info">NIP</th>
-            <th  class="table-info">Alamat</th>
-            <th  class="table-info">Nomer</th>
+            <th  class="table-info">NRP Mahasiswa</th>
+            <th  class="table-info">Mata Kuliah</th>
+            <th  class="table-info">Status Kehadiran</th>
             <th  class="table-info">Aksi</th>
         </tr>
       </thead>
-        @foreach($dosen as $d)
+        @foreach($rekap as $r)
         <tr>
-            <td>{{ $d->nama_dosen }}</td>
-            <td>{{ $d->nip }}</td>
-            <td>{{ $d->alamat }}</td>
-            <td>{{ $d->no_tlp }}</td>
-            <td><a class="btn btn-danger" href="/index/hapus/{{ $d->id }}">Hapus</a></td> 
+            <td>{{ $r->mahasiswa_nrp }}</td>
+            <td>{{ $r->presensi->matkul->nama_matkul }}</td>
+            <td>@if ($r->is_hadir == 1)
+                H
+            @else
+                A
+            @endif</td>
+            <td><a class="btn btn-danger" href="/index/hapus/{{ $r->id }}">Edit</a></td> 
         </tr>
         @endforeach
 </table>

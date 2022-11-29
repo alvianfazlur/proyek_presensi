@@ -29,6 +29,7 @@ Auth::routes();
 Route::post('/login', [LoginController::class,'login'])->name('login');
 Route::get('/index/admin/dosen', [IndexController::class,'homeAdmin']);
 Route::get('/index/admin/mahasiswa', [IndexController::class,'adminMhs']);
+Route::get('/index/admin/cek', [IndexController::class,'cekPresensi']);
 
 //CRUD DOSEN
 Route::get('/index/tambahDosen', [IndexController::class,'tambahDosen']);

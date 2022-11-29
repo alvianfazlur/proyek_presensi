@@ -7,6 +7,7 @@ use \App\Models\Dosen;
 use \App\Models\Kelas;
 use \App\Models\Mahasiswa;
 use \App\Models\Matkul;
+use \App\Models\Rekap;
 use \App\Models\Presensi;
 class IndexController extends Controller
 {
@@ -20,6 +21,10 @@ class IndexController extends Controller
     public function adminMhs(){
         $mahasiswa = Mahasiswa::get();
         return view('admin.adminMhs',['mahasiswa' => $mahasiswa]);
+    }
+    public function cekPresensi(){
+        $rekap = Rekap::get();
+        return view('admin.cekPresensi',['rekap' => $rekap]);
     }
     public function hapusDosen($id){
 	    // menghapus data todolist berdasarkan id yang dipilih
