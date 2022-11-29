@@ -13,7 +13,7 @@ class MahasiswaController extends Controller
         return view('mahasiswa.homeMhs',['presensi' => $presensi]);
     }
     public function absen(Request $request){
-        // insert data ke table todolist
+        // insert data
         Rekap::create([
             'presensi_id' => $request->id_presensi,
             'is_hadir' => 1

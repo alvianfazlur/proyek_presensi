@@ -1,58 +1,103 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
+
 <body>
-    <div class="container-fluid ps-md-0">
-        <div class="row g-0">
-          <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
-          <div class="col-md-8 col-lg-6">
-            <div class="login d-flex align-items-center py-5">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-9 col-lg-8 mx-auto">
-                    <h3 class="login-heading mb-4">Welcome!</h3>
-      
-                    <!-- Sign In Form -->
-                    <form method="POST" action="{{ route('login') }}">
-                    {{ csrf_field() }}
-                      <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">{{ __('Email Address') }}</label>
-                      </div>
-                      <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                        <label for="floatingPassword">{{ __('Password') }}</label>
-                      </div>
-      
-                      <div class="d-grid">
-                        <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">{{ __('Login') }}</button>
-                        <div class="text-center">
-                          <a class="small" href="#">Forgot password?</a>
+
+    @extends('layouts.app')
+
+    @section('content')
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-7 col-lg-5">
+                    <div class="wrap">
+                        <div class="img" style="background-image: url(assets/img/ab.jpg);"></div>
+                        <div class="login-wrap p-4 p-md-5">
+                            <div class="row justify-content-center">
+                                <div class="d-flex">
+                                    <div class="w-100">
+                                        <h3>{{ __('Login') }}</h3>
+                                    </div>
+                                </div>
+
+                                <form method="POST" action="{{ route('login') }}" class="signin-form">
+                                    @csrf
+
+                                    <div class="form-group mt-3">
+                                        <label for="email"class="cform-control-placeholder">{{ __('Email Address') }}</label>
+
+
+                                        <input id="email" type="email"class="form-control @error('email') is-invalid @enderror" name="email"value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+
+                                    </div>
+
+                                    <div class="form-group mt-3">
+                                        <label for="password"class="orm-control-placeholder">{{ __('Password') }}</label>
+
+
+                                        <input id="password" type="password"class="form-control @error('password') is-invalid @enderror" name="password"required autocomplete="current-password">
+
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+
+                                    </div>
+
+                                    <div class="form-group d-md-flex">
+                                        <div class="w-50 text-left">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="remember"
+                                                    id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                                <label class="form-check-label" for="remember">
+                                                    {{ __('Remember Me') }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="w-50 text-left">
+                                            <button type="submit"class="form-control btn btn-primary rounded submit px-3">
+                                                {{ __('Login') }}
+                                            </button>
+
+                                            @if (Route::has('password.request'))
+                                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                {{ __('Forgot Your Password?') }}
+                                            </a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
                         </div>
-                      </div>
-      
-                    </form>
-                  </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    </section>
+    @endsection
+
 </body>
+
 </html>

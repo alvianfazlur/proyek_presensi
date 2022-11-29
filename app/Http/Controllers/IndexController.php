@@ -62,4 +62,8 @@ class IndexController extends Controller
 	// alihkan halaman
 	return redirect('index/admin/mahasiswa');
     }
+
+    public function logout(){
+        return view('auth.login');
+    }
 }

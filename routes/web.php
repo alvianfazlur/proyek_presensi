@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,12 +21,12 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
 
-Route::get('/login', [HomeController::class,'index']);
+Route::post('/login', [LoginController::class,'login'])->name('login');
 Route::get('/index/admin/dosen', [IndexController::class,'homeAdmin']);
 Route::get('/index/admin/mahasiswa', [IndexController::class,'adminMhs']);
 
@@ -48,23 +49,27 @@ Route::get('/presensi', [DosenController::class,'home']);
 Route::get('/presensi/bukaabsen/{id}', [DosenController::class,'bukaabsen']);
 Route::post('/presensi/Absensi', [DosenController::class,'store']);
 
+
+
 //mahasiswa
-Route::middleware(['auth', 'user-access:mahasiswa'])->group(function () {
+Route::middleware(['auth', 'useraccess:mahasiswa'])->group(function () {
   
-    Route::get('/mahasiswa/home', [HomeController::class, 'homeMhs'])->name('home.Mhs');
+    Route::get('/mahasiswa', [MahasiswaController::class, 'home'])->name('homeMhs');
 });
-  
 //admin
-Route::middleware(['auth', 'user-access:admin'])->group(function () {
+Route::middleware(['auth', 'useraccess:admin'])->group(function () {
   
-    Route::get('/admin/home', [HomeController::class, 'homeAdmin'])->name('home.Admin');
+    Route::get('/index/admin', [IndexController::class, 'homeAdmin'])->name('homeAdmin');
 });
   
 //dosen
-Route::middleware(['auth', 'user-access:dosen'])->group(function () {
+Route::middleware(['auth', 'useraccess:dosen'])->group(function () {
   
-    Route::get('/dosen/home', [HomeController::class, 'homeDosen'])->name('home.Dosen');
+    Route::get('/presensi', [DosenController::class, 'home'])->name('homeDosen');
 });
+
+//logout
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 

@@ -20,7 +20,7 @@
             <label for="Nama">Matkul : </label>
             <input type="text" class="form-control" name="nama"value="{{ $m->nama_matkul}}" disabled>
         </div>
-		<input class="btn btn-success" type="submit" value="Buka Absen">
+		<input class="btn btn-success" type="submit" value="Konfirmasi">
 	</form>
 	@endforeach
 </div>

@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
     <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/styleAdmin.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>AdminLTE</title>
+     <title>Admin</title>
     </head>
 <body>
   <div class="sidebar">
@@ -57,7 +58,11 @@
     </ul>
   </div>
   <section class="home-section">
+  <div class="container">
+            <div class="row">
+                <div class="col-md-12">
     <table class="table table-hover table-striped table-bordered">
+    <thead class="thead-dark">
         <tr>
             <th  class="table-info">Nama</th>
             <th  class="table-info">NRP</th>
@@ -68,6 +73,7 @@
             <th  class="table-info">Nomor Telepon</th>
             <th  class="table-info">Aksi</th>
         </tr>
+    </thead>
         @foreach($mahasiswa as $m)
         <tr>
             <td>{{ $m->nama_mahasiswa }}</td>
@@ -84,6 +90,9 @@
         </tr>
         @endforeach
 </table>
+                </div>
+                </div>
+                </div>
   </section>
   <script>
   let sidebar = document.querySelector(".sidebar");
