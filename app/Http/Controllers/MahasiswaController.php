@@ -19,7 +19,7 @@ class MahasiswaController extends Controller
             'is_hadir' => 1
         ]);       
 	
-	return redirect('/mahasiswa');
+	return redirect('/mahasiswa')->with('message', 'Presensi Berhasil!');
     }
     public function dashboard(){
         return view('mahasiswa.presensiberhasil');

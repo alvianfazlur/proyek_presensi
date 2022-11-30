@@ -73,7 +73,7 @@
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
-                            @foreach($matkul as $m)
+                            @foreach($rekap as $r)
                             <tr>
                                 <td>{{ $m->nama_matkul }}</td>
                                 <td>{{ $m->keterangan }}</td>

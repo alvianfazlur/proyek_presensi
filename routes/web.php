@@ -51,6 +51,7 @@ Route::get('/mahasiswa/dashboardsukses', [MahasiswaController::class,'dashboard'
 Route::get('/presensi', [DosenController::class,'home']);
 Route::get('/presensi/bukaabsen/{id}', [DosenController::class,'bukaabsen']);
 Route::post('/presensi/Absensi', [DosenController::class,'store']);
+Route::post('/presensi/Lihat', [DosenController::class,'view']);
 
 
 

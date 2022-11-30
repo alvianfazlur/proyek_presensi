@@ -10,7 +10,7 @@ use \App\Models\Rekap;
 class Presensi extends Model
 {
     use HasFactory;
-    public $with = ['matkul','rekap'];
+    public $with = ['matkul'];
     protected $guarded = ['id'];
 
     public function matkul(){

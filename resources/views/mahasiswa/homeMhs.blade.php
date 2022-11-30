@@ -51,6 +51,7 @@
     <div class="container">
     <div class="row">
     <div class="col-md-12">
+     
     <table class="table table-hover table-striped table-bordered">
         <thead class="thead-dark">
         <tr>
@@ -59,8 +60,14 @@
             <th></th>
         </tr>
         </thead>
+        @if(Session::has('message'))
+        <div class="alert alert-success" role="alert">
+          {{ Session::get('message')}}
+        </div>
+        @endif
         @foreach($presensi as $p)
         <tr>
+
             <td>{{ $p->matkul->nama_matkul}}</td>
             <td>{{ $p->created_at}}</td>
             <td>

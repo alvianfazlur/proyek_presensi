@@ -18,6 +18,10 @@ class DosenController extends Controller
         $matkul = Matkul::where('id',$id)->get();
         return view('dosen.BukaAbsen',['matkul' => $matkul]);
     }
+    public function view(){
+        $rekap = Rekap::get();
+        return view('dosen.lihatabsen',['rekap' => $rekap]);
+    }
     public function store(Request $request){
         // insert data ke table todolist
         Presensi::create([
