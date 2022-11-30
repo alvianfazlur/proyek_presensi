@@ -86,7 +86,7 @@
             @else
                 A
             @endif</td>
-            <td><a class="btn btn-danger" href="/index/hapus/{{ $r->id }}">Edit</a></td> 
+            <td><a class="btn btn-danger" href="/index/editPresensi/{{ $r->id }}">Edit</a></td> 
         </tr>
         @endforeach
 </table>

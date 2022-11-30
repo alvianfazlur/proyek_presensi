@@ -26,6 +26,20 @@ class IndexController extends Controller
         $rekap = Rekap::get();
         return view('admin.cekPresensi',['rekap' => $rekap]);
     }
+    public function editPresensi($id){
+	    $rekap = Rekap::where('id',$id)->get();
+		
+	    // alihkan halaman ke halaman todolist
+	    return view('admin.editPresensi',['rekap' => $rekap]);
+    }
+    public function updatePresensi(Request $request){
+
+        Mahasiswa::where('id',$request->id)->update([
+            'is_hadir' => $request->status           
+        ]);
+	// alihkan halaman
+	return redirect('index/admin/mahasiswa');
+    }
     public function hapusDosen($id){
 	    // menghapus data todolist berdasarkan id yang dipilih
 	    DB::table('dosens')->where('id',$id)->delete();
