@@ -34,7 +34,7 @@ class IndexController extends Controller
     }
     public function updatePresensi(Request $request){
 
-        Mahasiswa::where('id',$request->id)->update([
+        Rekap::where('id',$request->id)->update([
             'is_hadir' => $request->status           
         ]);
 	// alihkan halaman

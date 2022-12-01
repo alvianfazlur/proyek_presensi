@@ -26,7 +26,7 @@
                 <span class="tooltip">Search</span>
             </li>
             <li>
-                <a href="/presensi/bukaabsen/{id}">
+                <a href="/presensi/dosen">
                     <i class='bx bx-calendar-plus'></i>
                     <span class="links_name">Buka Absen</span>
                 </a>

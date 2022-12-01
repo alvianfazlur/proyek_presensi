@@ -15,6 +15,7 @@ class MahasiswaController extends Controller
     public function absen(Request $request){
         // insert data
         Rekap::create([
+            'mahasiswa_nrp' => 3121600032,
             'presensi_id' => $request->id_presensi,
             'is_hadir' => 1
         ]);       

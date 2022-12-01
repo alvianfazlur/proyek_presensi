@@ -74,6 +74,8 @@
             <th  class="table-info">NRP Mahasiswa</th>
             <th  class="table-info">Mata Kuliah</th>
             <th  class="table-info">Status Kehadiran</th>
+            <th  class="table-info">Jam Kehadiran Mahasiswa</th>
+            <th  class="table-info">Jam Absensi Dibuka</th>
             <th  class="table-info">Aksi</th>
         </tr>
       </thead>
@@ -86,6 +88,8 @@
             @else
                 A
             @endif</td>
+            <td>{{ $r->created_at }}</td>
+            <td>{{ $r->presensi->created_at }}</td>
             <td><a class="btn btn-danger" href="/index/editPresensi/{{ $r->id }}">Edit</a></td> 
         </tr>
         @endforeach

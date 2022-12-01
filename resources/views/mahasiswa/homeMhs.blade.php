@@ -24,7 +24,7 @@
          <span class="tooltip">Search</span>
       </li>
      <li>
-       <a href="/mahasiswa/Presensi">
+       <a href="/mahasiswa">
          <i class='bx bx-pie-chart-alt-2' ></i>
          <span class="links_name">Presensi</span>
        </a>

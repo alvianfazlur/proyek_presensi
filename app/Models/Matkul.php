@@ -9,7 +9,7 @@ use \App\Models\Dosen;
 class Matkul extends Model
 {
     use HasFactory;
-    public $with = ['kelas','dosen'];
+    public $with = ['kelas'];
 
     public function kelas(){
         return $this->belongsTo(Kelas::class,"kelas_id");
