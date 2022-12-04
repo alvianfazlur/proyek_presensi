@@ -26,7 +26,7 @@
                 <span class="tooltip">Search</span>
             </li>
             <li>
-                <a href="/presensi/bukaabsen/{id}">
+                <a href="/presensi">
                     <i class='bx bx-calendar-plus'></i>
                     <span class="links_name">Buka Absen</span>
                 </a>
@@ -68,22 +68,26 @@
                         <table class="table table-hover table-striped table-bordered">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th>Mata Kuliah</th>
-                                    <th>Keterangan</th>
-                                    <th>&nbsp;</th>
+                                    <th  class="table-info">NRP Mahasiswa</th>
+                                    <th  class="table-info">Mata Kuliah</th>
+                                    <th  class="table-info">Status Kehadiran</th>
+                                    <th  class="table-info">Jam Kehadiran Mahasiswa</th>
+                                    <th  class="table-info">Jam Absensi Dibuka</th>
                                 </tr>
-                            </thead>
-                            @foreach($rekap as $r)
-                            <tr>
-                                <td>{{ $m->nama_matkul }}</td>
-                                <td>{{ $m->keterangan }}</td>
-                                <td>
-                                    <center>
-                                        <a class="btn btn-warning" href="/presensi/bukaabsen/{{ $m->id }}">Buka Absen</a>
-                                    </center>
-                                </td>
-                            </tr>
-                            @endforeach
+                              </thead>
+                                @foreach($rekap as $r)
+                                <tr>
+                                    <td>{{ $r->mahasiswa_nrp }}</td>
+                                    <td>{{ $r->presensi->matkul->nama_matkul }}</td>
+                                    <td>@if ($r->is_hadir == 1)
+                                        H
+                                    @else
+                                        A
+                                    @endif</td>
+                                    <td>{{ $r->created_at }}</td>
+                                    <td>{{ $r->presensi->created_at }}</td>
+                                </tr>
+                                @endforeach
                         </table>
                       <!-- </div> -->
                   </div>
